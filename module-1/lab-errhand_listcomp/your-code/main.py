@@ -11,6 +11,7 @@ print(my_listComprehension)
 import math
 import os
 import random
+import sys
 
 #1. Calculate the square number of the first 20 numbers. Use square as the name of the list.
 # Remember to use list comprehensions and to print your results
@@ -186,10 +187,14 @@ except FileNotFoundError:
 #19. Handle the exceptions that can be thrown by the code below using try and except blocks. 
 #Hint: the file could not exist and the data could not be convertable to int
 
-fp = open('myfile.txt')
-    line = f.readline()
-    i = int(s.strip())
-
+try:
+  fp = open('myfile.txt')
+  line = f.readline()
+  i = int(s.strip())
+except FileNotFoundError:
+  print("Sorry, file not found")
+except ValueError:
+  print("Sorry, the values are not valid")
 
 
 
@@ -202,6 +207,10 @@ def linux_interaction():
     assert ('linux' in sys.platform), "Function can only run on Linux systems."
     print('Doing something.')
 
+try linux_interaction:
+
+except AssertionError:
+    print ("Function can only run on Linux systems.")
 
 # Bonus Questions:
 
@@ -211,7 +220,12 @@ def linux_interaction():
 # Hint: we need to continually keep checking until we get an integer.
 # Use a while loop with a try,except, else block to account for incorrect inputs.
 
-
+def integrer_function(z):
+  try:
+    z = int(input("introduce un número: "))
+    return math.sqrt(z)
+  except ValueError:
+    print("Sorry, the value does not exist")
 
 
 # 22. Find all of the numbers from 1-1000 that are divisible by any single digit besides 1 (2-9). 
