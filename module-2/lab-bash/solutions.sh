@@ -59,6 +59,7 @@ ls lorem .txt
 wc -l lorem/sed.txt
 
 * Cuenta el número de **archivos** que empiezan por `lorem` que están en este directorio y en directorios internos.
+find lorem | wc -w
 
 * Encuentra todas las apariciones de `et` en `at.txt` dentro de la carpeta lorem.
 grep -o -i et lorem/at.txt
