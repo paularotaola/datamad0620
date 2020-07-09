@@ -7,7 +7,7 @@ The code is functional but has a lot of room for improvement. Use what you have 
 about simple and efficient code, refactor the code.
 """
 
-def RandomStringGenerator(l=12, a=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']):
+"""def RandomStringGenerator(l=12, a=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','0','1','2','3','4','5','6','7','8','9']):
     p = 0
     s = ''
     while p<l:
@@ -35,4 +35,14 @@ a = input('Enter minimum string length: ')
 b = input('Enter maximum string length: ')
 n = input('How many random strings to generate? ')
 
-print(BatchStringGenerator(int(n), int(a), int(b)))
+print(BatchStringGenerator(int(n), int(a), int(b)))"""
+import random
+import string
+
+questions = ['Enter minimum string length: ', 'Enter maximum string length: ', 'How many random strings to generate? ']
+a,b,n = [input(questions[i]) for i in range(len(questions))]
+
+x = random.choice(range(int(a),int(b)))
+res= [( ''.join(random.choice(string.ascii_lowercase + string.digits) for i in range(x))) for i in range(int(n))]
+print(res)
+

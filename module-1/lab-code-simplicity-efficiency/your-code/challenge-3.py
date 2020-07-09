@@ -12,7 +12,7 @@ The following function shows one way to solve the problem but the code is not id
 Refactor the code based on what you have learned about code simplicity and efficiency.
 """
 
-def my_function(X):
+"""def my_function(X):
     solutions = []
     for x in range(5, X):
         for y in range(4, X):
@@ -27,4 +27,15 @@ def my_function(X):
 
 X = input("What is the maximal length of the triangle side? Enter a number: ")
 
-print("The longest side possible is " + str(my_function(int(X))))
+print("The longest side possible is " + str(my_function(int(X))))"""
+
+
+X = int(input("What is the maximal length of the triangle side? Enter a number: "))
+solutions = []
+m =0
+
+res = [ solutions.append([x, y, z]) for x in range(5, X) for y in range(4, X) for z in range(3, X) if (x*x==y*y+z*z)]
+m = 0
+
+sol = [max(solution) for solution in solutions if m < max(solution)]
+print(f"The longest side possible is {max(sol)}")

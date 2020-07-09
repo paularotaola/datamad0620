@@ -9,7 +9,7 @@ The code is very long and messy. Refactor it according to what you have learned 
 code simplicity and efficiency.
 """
 
-print('Welcome to this calculator!')
+"""print('Welcome to this calculator!')
 print('It can add and subtract whole numbers from zero to five')
 a = input('Please choose your first number (zero to five): ')
 b = input('What do you want to do? plus or minus: ')
@@ -167,3 +167,53 @@ if (not a == 'zero' and not a == 'one' and not a == 'two' and not a == 'three' a
     print("I am not able to answer this question. Check your input.")
 
 print("Thanks for using this calculator, goodbye :)")
+"""
+def Calculator():
+    print('Welcome to this calculator!')
+    print('It can add and subtract whole numbers from zero to five')
+
+    numbers ={
+        "zero":0,
+        "one": 1,
+        "two":2,
+        "three":3,
+        "four":4,
+        "five":5,
+        "six":6,
+        "seven":7,
+        "eight":8,
+        "nine":9,
+        "ten":10
+    }
+    questions = ['Please choose your first number (zero to five): ',
+                 'What do you want to do? plus or minus: ', 
+                 'Please choose your second number (zero to five): ']
+    a,b,c = [input(questions[i]) for i in range(len(questions))]
+
+    
+    if (a not in numbers or c not in numbers or (b != "minus" and b != "plus")):
+        print("I am not able to answer this question. Check your input.")
+    
+    a2= numbers.get(a)
+    c2= numbers.get(c)
+    
+    def GetKey(val):  
+        for key, value in numbers.items():
+            if val == value:
+                 return key    
+
+    if b == "plus":
+        number = a2+c2 
+        print(f"{a} plus {c} equals {GetKey(number)}")
+
+    if b == "minus":
+        number = a2-c2
+        if c2>a2:
+            print(f"{a} minus {c} equals negative number")
+        else:
+            print(f"{a} minus {c} equals {GetKey(number)}")
+        
+    print("Thanks for using this calculator, goodbye :)")
+
+Calculator()
+
